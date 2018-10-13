@@ -29,9 +29,9 @@
                     <input asp-for="PassWord" class="login-control" placeholder="..." />
                 </p>
                 <p>
-            
-                        <button type="submit">Sign up!</button>
-                   
+                    <a href="@Url.Action("ConfirmSignUp","Login")">
+                        <button type="button">Sign up!</button>
+                    </a>
                 </p>
             }
         </form>
