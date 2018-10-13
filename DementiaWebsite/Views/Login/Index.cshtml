@@ -1,0 +1,84 @@
+@{ 
+    Layout = "_Layout";
+}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Day - HTML Bootstrap Template</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/animate.css">
+	<link href="css/animate.min.css" rel="stylesheet"> 
+	<link href="css/style.css" rel="stylesheet" />	
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+
+  </head>
+  <body>
+
+      <section class="contact-page">
+          <div class="container">
+              <div class="text-center">
+                  <h2>Sign in --------------------------------------- log in</h2>
+              </div>
+              <div class="row contact-wrap">
+                  <div class="status alert alert-success" style="display: none"></div>
+                  <form id="main-contact-form" class="contact-form" name="contact-form" method="post" action="sendemail.php">
+                      <div class="col-sm-5 col-sm-offset-1">
+                          <div class="form-group">
+                              <label>Fullname *</label>
+                              <input type="text" name="name" class="form-control" required="required">
+                          </div>
+                          <div class="form-group">
+                              <label>Password *</label>
+                              <input type="email" name="email" class="form-control" required="required">
+                          </div>
+                          <div class="form-group">
+                              <label>Username *</label>
+                              <input type="number" class="form-control">
+                          </div>
+                          <button type="submit" name="submit" class="btn btn-primary btn-lg" required="required">Sign up</button>
+
+                      </div>
+                      <div class="col-sm-5">
+                          <div class="form-group">
+                              <label>UserName *</label>
+                              <input type="text" name="subject" class="form-control" required="required">
+                          </div>
+                          <div class="form-group">
+                              <label>Password *</label>
+                              <input type="password" name="subject" class="form-control" required="required">
+
+                          </div>
+                          <div class="form-group">
+                              <br /><br /><br />
+                              <button type="submit" name="submit" class="btn btn-primary btn-lg" required="required">Log in</button>
+                          </div>
+                      </div>
+                  </form>
+              </div><!--/.row-->
+          </div><!--/.container-->
+      </section><!--/#contact-page-->
+
+      @await (Component.InvokeAsync<DementiaWebsite.ViewComponents.FooterViewComponent>())
+
+
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <script src="js/jquery.js"></script>
+      <!-- Include all compiled plugins (below), or include individual files as needed -->
+      <script src="js/bootstrap.min.js"></script>
+      <script src="js/wow.min.js"></script>
+      <script>
+	wow = new WOW(
+	 {
+
+		}	)
+		.init();
+      </script>
+  </body>
+</html>
