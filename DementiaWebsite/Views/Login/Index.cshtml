@@ -1,32 +1,41 @@
+﻿@model DementiaWebsite.Models.Person
 @{ 
     Layout = "_Layout";
 }
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Day - HTML Bootstrap Template</title>
-
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/animate.css">
-	<link href="css/animate.min.css" rel="stylesheet"> 
-	<link href="css/style.css" rel="stylesheet" />	
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-
-  </head>
-  <body>
-
       <section class="contact-page">
           <div class="container">
               <div class="text-center">
-                  <h2>Sign in --------------------------------------- log in</h2>
+                  <h2>Sign in</h2>
               </div>
-              <div class="row contact-wrap">
+
+                <fieldset>
+                    @using (Html.BeginForm())
+                    {
+                        <p>@Html.LabelFor(x => x.FirstName)
+                        @Html.EditorFor(x => x.FirstName)
+                        </p>
+                        <p>
+                            @Html.LabelFor(x => x.LastName)
+                            @Html.EditorFor(x => x.LastName)
+                        </p>
+                        <p>
+                            @Html.LabelFor(x => x.Email)
+                            @Html.EditorFor(x => x.Email)
+                        </p>
+                        <p>
+                            @Html.LabelFor(x => x.PassWord)
+                            @Html.EditorFor(x => x.PassWord)
+                        </p>
+                        <p>
+                            <a href="@Url.Action("ConfirmSignUp","Login")">
+                                <button type="button">Sign up!</button>
+                            </a>
+                        </p>
+                    }
+
+                </fieldset>
+
+              <!--<div class="row contact-wrap">
                   <div class="status alert alert-success" style="display: none"></div>
                   <form id="main-contact-form" class="contact-form" name="contact-form" method="post" action="sendemail.php">
                       <div class="col-sm-5 col-sm-offset-1">
@@ -60,7 +69,7 @@
                               <button type="submit" name="submit" class="btn btn-primary btn-lg" required="required">Log in</button>
                           </div>
                       </div>
-                  </form>
+                  </form>-->
               </div><!--/.row-->
           </div><!--/.container-->
       </section><!--/#contact-page-->
@@ -80,5 +89,3 @@
 		}	)
 		.init();
       </script>
-  </body>
-</html>

@@ -10,7 +10,7 @@ namespace DementiaWebsite.Controllers
     [Route("player")]
     public class PlayerController : Controller
     {
-        [Route("")]
+       
         public IActionResult Index()
         { 
             return View();

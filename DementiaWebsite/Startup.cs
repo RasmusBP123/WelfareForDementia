@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using DementiaWebsite.Models;
 
 namespace DementiaWebsite
 {
@@ -26,14 +27,20 @@ namespace DementiaWebsite
                 .Build();
         }
 
-        public IConfiguration Configuration { get; }
-
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<FeatureToggles>(x => new FeatureToggles
             {
                 EnableDeveloperExceptions = configuration.GetValue<bool>("FeatureToggles:EnableDeveloperExceptions")
             });
+
+            services.AddDbContext<SignUpDataContext>(options =>
+            {
+                 var connectionString = configuration.GetConnectionString("PersonDataContext");
+                options.UseSqlServer(connectionString);
+
+            });
+
 
             //this method should always be implemented with app.UseMvc()
             services.AddMvc();
