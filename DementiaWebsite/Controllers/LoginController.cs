@@ -31,8 +31,15 @@ namespace DementiaWebsite.Controllers
         [HttpPost, Route("create")]
         public IActionResult CreateUser(Person person)
         {
+            if (!ModelState.IsValid) return View();
+            
             person.FirstName = User.Identity.Name;
             person.LastName = User.Identity.Name;
+            person.Email = User.Identity.Name;
+            person.PassWord = User.Identity.Name;
+
+            _db.Persons.Add(person);
+            _db.SaveChanges();
 
             return View();
         }

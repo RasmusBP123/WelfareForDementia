@@ -7,6 +7,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.4" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -14,7 +15,6 @@
     <Folder Include="Views\Game\" />
     <Folder Include="ViewComponents\" />
     <Folder Include="Views\Home\" />
-    <Folder Include="Views\Shared\" />
     <Folder Include="Views\Scoreboard\" />
     <Folder Include="Views\Shared\Components\" />
     <Folder Include="Views\Shared\Components\Footer\" />
