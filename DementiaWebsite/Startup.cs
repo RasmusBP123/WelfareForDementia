@@ -11,6 +11,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using DementiaWebsite.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace DementiaWebsite
 {
@@ -41,6 +43,9 @@ namespace DementiaWebsite
 
             });
 
+            services.AddDbContext<IdentityDbContext>();
+
+            services.AddIdentity<IdentityUser, IdentityRole>();
 
             //this method should always be implemented with app.UseMvc()
             services.AddMvc();
