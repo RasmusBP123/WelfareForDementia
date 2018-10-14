@@ -38,14 +38,20 @@ namespace DementiaWebsite
 
             services.AddDbContext<SignUpDataContext>(options =>
             {
-                 var connectionString = configuration.GetConnectionString("PersonDataContext");
-                options.UseSqlServer(connectionString);
+                options.UseSqlServer(configuration.GetConnectionString("PersonDataContext"));
+            });
+
+            services.AddDbContext<IdentityDbContext>(options => 
+            {
+                options.UseSqlServer(configuration.GetConnectionString("DementiaWebsiteContextConnection"),
+                optionsBuilder =>
+                optionsBuilder.MigrationsAssembly("DementiaWebsite"));
 
             });
 
-            services.AddDbContext<IdentityDbContext>();
-
-            services.AddIdentity<IdentityUser, IdentityRole>();
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<IdentityDbContext>()
+                .AddDefaultTokenProviders() ;
 
             //this method should always be implemented with app.UseMvc()
             services.AddMvc();
@@ -62,6 +68,8 @@ namespace DementiaWebsite
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseAuthentication();
 
             //routing method which will look for "Controllers","/public methods in those classes and what parameters they might have
             app.UseMvc(routes =>

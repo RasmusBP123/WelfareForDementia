@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DementiaWebsite.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -13,9 +14,10 @@ namespace DementiaWebsite.Controllers
     {
         private readonly SignUpDataContext _db;
 
-        public LoginController(SignUpDataContext db)
+        private readonly UserManager<IdentityUser> _userManager;
+        public LoginController(UserManager<IdentityUser> userManager)
         {
-            _db = db;
+            _userManager = userManager;
         }
         [Route("login")]
         public IActionResult Index()
@@ -29,18 +31,29 @@ namespace DementiaWebsite.Controllers
         }
 
         [HttpPost, Route("create")]
-        public IActionResult CreateUser(Person person)
+        public async Task<IActionResult> CreateUser(Person person)
         {
-            if (!ModelState.IsValid) return View();
-            
-            person.FirstName = User.Identity.Name;
-            person.LastName = User.Identity.Name;
-            person.Email = User.Identity.Name;
-            person.PassWord = User.Identity.Name;
+            if (!ModelState.IsValid)
+            {
+                IdentityUser user = new IdentityUser()
+                {
+                    UserName = person.FirstName,
 
-            _db.Persons.Add(person);
-            _db.SaveChanges();
+                };
+              var result = await _userManager.CreateAsync(user, person.PassWord);
 
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("ConfirmSignUp", "Login");
+                }
+                else
+                {
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError(string.Empty, error.Description);
+                    }
+                }
+            }
             return View();
         }
         [Route("confirm")]
