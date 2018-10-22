@@ -9,28 +9,21 @@ namespace DementiaWebsite.Models
 {
     public class Person
     {
-        public long ID { get; set; }
-        private string _key { get; set; }
-        public string Key {
-            get
-            {
-                if(_key == null)
-                {
-                    _key = Regex.Replace(FirstName.ToLower(), "[^a-z0-9]", "-");
-                }
-                return _key;
-            }
-            set { _key = value;}
-        }
         [Required]
-        [Display(Name = "First Name")]
-        public string FirstName { get; set; }
-        [Required]
-        public string LastName { get; set; }
-        [Required]
+        [Display(Name = "Email")]
         public string Email { get; set; }
+
         [Required]
+        [Display(Name = "Password")]
         [DataType(DataType.Password)]
         public string PassWord { get; set; }
+
+        [Required]
+        [Display(Name = "Reenter Password")]
+        [DataType(DataType.Password)]
+        public string ConfirmPassWord { get; set; }
+
+        [Display(Name = "Remember me?")]
+        public bool RememberMe { get; set; }
     }
 }

@@ -6,23 +6,14 @@ using DementiaWebsite.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace DementiaWebsite.Controllers
 {
     public class LoginController : Controller
     {
-        private readonly SignUpDataContext _db;
-
         private readonly UserManager<IdentityUser> _userManager;
         public LoginController(UserManager<IdentityUser> userManager)
         {
             _userManager = userManager;
-        }
-        [Route("login")]
-        public IActionResult Index()
-        {
-            return View();
         }
         [HttpGet, Route("create")]
         public IActionResult CreateUser()
@@ -37,10 +28,10 @@ namespace DementiaWebsite.Controllers
             {
                 IdentityUser user = new IdentityUser()
                 {
-                    UserName = person.FirstName,
-
+                    UserName = person.Email,
+                    Email = person.Email,
                 };
-              var result = await _userManager.CreateAsync(user, person.PassWord);
+                var result = await _userManager.CreateAsync(user, person.PassWord);
 
                 if (result.Succeeded)
                 {
