@@ -1,0 +1,19 @@
+﻿@{ 
+    Layout = "_Layout";
+}
+  <body>
+        <h2>Achviements</h2>
+
+      @await (Component.InvokeAsync<DementiaWebsite.ViewComponents.FooterViewComponent>())
+
+      <script src="js/jquery.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <script src="js/wow.min.js"></script>
+      <script>
+	wow = new WOW(
+	 {
+
+		}	)
+		.init();
+      </script>
+  </body>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DementiaWebsite.Models
 {
-    public class Person
+    public class Person : IdentityUser
     {
         [Required]
         [Display(Name = "Email")]
@@ -18,9 +19,8 @@ namespace DementiaWebsite.Models
         [DataType(DataType.Password)]
         public string PassWord { get; set; }
 
-        [Required]
         [Display(Name = "Reenter Password")]
-        [DataType(DataType.Password)]
+        [Compare(nameof(PassWord))]
         public string ConfirmPassWord { get; set; }
     }
 }

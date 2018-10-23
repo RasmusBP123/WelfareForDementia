@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DementiaWebsite.Controllers
 {
-    public class ScoreboardController : Controller
+    public class AchievementsController : Controller
     {
         public IActionResult Index()
         {

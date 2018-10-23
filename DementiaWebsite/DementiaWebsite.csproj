@@ -18,12 +18,11 @@
     <Folder Include="Views\Game\" />
     <Folder Include="ViewComponents\" />
     <Folder Include="Views\Home\" />
-    <Folder Include="Views\Scoreboard\" />
+    <Folder Include="Views\Achievements\" />
     <Folder Include="Views\Shared\Components\" />
     <Folder Include="Views\Shared\Components\Footer\" />
     <Folder Include="Views\Shared\Components\NavBar\" />
     <Folder Include="wwwroot\css\" />
-    <Folder Include="Views\Play\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Views\Home\Player.cshtml" />
@@ -32,6 +31,7 @@
   <ItemGroup>
     <Content Remove="Views\Index.cshtml" />
     <Content Remove="Views\Home\About.cshtml" />
+    <Content Remove="Views\Play\Index.cshtml" />
     <Content Remove="wwwroot\images\banner1.svg" />
     <Content Remove="wwwroot\js\site.js" />
     <Content Remove="wwwroot\about.html" />
@@ -72,6 +72,7 @@
     <Content Remove="wwwroot\js\wow.min.js" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Views\Play\Index.cshtml" />
     <None Include="wwwroot\fonts\FontAwesome.otf" />
     <None Include="wwwroot\fonts\fontawesome-webfont.eot" />
     <None Include="wwwroot\fonts\fontawesome-webfont.svg" />

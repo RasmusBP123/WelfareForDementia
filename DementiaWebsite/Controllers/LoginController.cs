@@ -11,9 +11,12 @@ namespace DementiaWebsite.Controllers
     public class LoginController : Controller
     {
         private readonly UserManager<IdentityUser> _userManager;
-        public LoginController(UserManager<IdentityUser> userManager)
+        private readonly SignInManager<IdentityUser> signInManager;
+
+        public LoginController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> _signinManager)
         {
             _userManager = userManager;
+            _signinManager = signInManager;
         }
 
         [HttpPost, Route("create")]
@@ -24,7 +27,6 @@ namespace DementiaWebsite.Controllers
                 IdentityUser user = new IdentityUser()
                 {
                     UserName = person.Email,
-                    Email = person.Email,
                 };
                 var result = await _userManager.CreateAsync(user, person.PassWord);
 
