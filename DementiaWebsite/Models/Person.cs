@@ -22,8 +22,5 @@ namespace DementiaWebsite.Models
         [Display(Name = "Reenter Password")]
         [DataType(DataType.Password)]
         public string ConfirmPassWord { get; set; }
-
-        [Display(Name = "Remember me?")]
-        public bool RememberMe { get; set; }
     }
 }

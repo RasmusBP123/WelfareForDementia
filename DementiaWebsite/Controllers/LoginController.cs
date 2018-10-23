@@ -15,11 +15,6 @@ namespace DementiaWebsite.Controllers
         {
             _userManager = userManager;
         }
-        [HttpGet, Route("create")]
-        public IActionResult CreateUser()
-        {
-            return View();
-        }
 
         [HttpPost, Route("create")]
         public async Task<IActionResult> CreateUser(Person person)
@@ -35,7 +30,7 @@ namespace DementiaWebsite.Controllers
 
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("ConfirmSignUp", "Login");
+                    return RedirectToAction("ConfirmSignUp", "Confirm");
                 }
                 else
                 {
@@ -45,10 +40,10 @@ namespace DementiaWebsite.Controllers
                     }
                 }
             }
-            return View();
+            return View(person);
         }
-        [Route("confirm")]
-        public IActionResult ConfirmSignUp()
+        [HttpGet, Route("create")]
+        public IActionResult CreateUser()
         {
             return View();
         }

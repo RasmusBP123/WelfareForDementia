@@ -8,10 +8,9 @@ namespace DementiaWebsite.Models
 {
     public class SignUpDataContext : DbContext
     {
-        public DbSet<Person> Persons {get;set;}
+        public DbSet<Person> Persons {get; set; }
 
-        public SignUpDataContext(DbContextOptions<SignUpDataContext> options)
-            : base(options)
+        public SignUpDataContext(DbContextOptions<SignUpDataContext> options) : base(options)
         {
             Database.EnsureCreated();
         }

@@ -38,7 +38,7 @@ namespace DementiaWebsite
 
             services.AddDbContext<SignUpDataContext>(options =>
             {
-                options.UseSqlServer(configuration.GetConnectionString("PersonDataContext"));
+                options.UseSqlServer(configuration.GetConnectionString("DementiaWebsiteContextConnection"));
             });
 
             services.AddDbContext<IdentityDbContext>(options => 
@@ -62,12 +62,12 @@ namespace DementiaWebsite
                               IHostingEnvironment env,
                               FeatureToggles features)
         {
-            app.UseStaticFiles();
 
             if (features.EnableDeveloperExceptions)
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseStaticFiles();
 
             app.UseAuthentication();
 
