@@ -16,10 +16,8 @@
   <ItemGroup>
     <Folder Include="Views\Player\" />
     <Folder Include="Views\Game\" />
-    <Folder Include="ViewComponents\" />
     <Folder Include="Views\Home\" />
     <Folder Include="Views\Achievements\" />
-    <Folder Include="Views\Shared\Components\" />
     <Folder Include="Views\Shared\Components\Footer\" />
     <Folder Include="Views\Shared\Components\NavBar\" />
     <Folder Include="wwwroot\css\" />
@@ -116,6 +114,9 @@
     <None Include="wwwroot\css\style.css" />
   </ItemGroup>
   <ItemGroup>
+    <Content Update="Views\Shared\_Index.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="wwwroot\Default.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>

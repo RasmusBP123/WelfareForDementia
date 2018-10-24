@@ -281,7 +281,7 @@ a:hover {
 } 
 
 .btn-gamp a {
-  float: right;
+  /*float: right;*/
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 3px;
@@ -300,7 +300,7 @@ a:hover {
 }
 
 .gamp-btn a {
-  float: left;
+  /*float: left;*/
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 3px;
@@ -1004,6 +1004,10 @@ ul.sidebar-gallery {
   margin: 0;
  
 }
+.account{
+    width:20px;
+    height:20px;
+}
 
 .sidebar-gallery li {
   display: inline-block;
@@ -1029,12 +1033,12 @@ ul.social-network {
 	padding:30px;
 }
 
-ul.social-network li {
+/*ul.social-network li {
 	display:inline;
 	margin: 0 50px;	
 	font-size:25px;	
 	margin-left:-10px;
-}
+}*/
 
 ul.social-network li a {
 	color:#d0d0d0;	
