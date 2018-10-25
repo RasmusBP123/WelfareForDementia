@@ -1,6 +1,12 @@
-﻿<!DOCTYPE html>
+﻿@addTagHelper "*, Microsoft.AspNetCore.Mvc.TagHelpers"
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Identity.EntityFrameworkCore
+
+@inject SignInManager<IdentityUser> SignInManager
+
+<!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,11 +17,11 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/animate.css">
-    <link href="css/animate.min.css" rel="stylesheet"> 
-    <link href="css/style.css" rel="stylesheet" />  
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet" />
 
-  </head>
-  <body>    
+</head>
+<body>
     <header id="header">
         <nav class="navbar navbar-default navbar-static-top" role="banner">
             <div class="container">
@@ -26,26 +32,41 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                   <div class="navbar-brand">
+                    <div class="navbar-brand">
                         <a href="@Url.Action("Index","Home")"><h1>Battle the Mind</h1></a>
                     </div>
-                </div>              
-                <div class="navbar-collapse collapse">                          
+                </div>
+                <div class="navbar-collapse collapse">
                     <div class="menu">
                         <ul class="nav nav-tabs" role="tablist">
                             <li role="presentation"><a href="@Url.Action("Index","Home")">Home</a></li>
                             <li role="presentation"><a href="@Url.Action("Index","Player")">Player</a></li>
                             <li role="presentation"><a href="@Url.Action("Index","Achievements")">Achievements</a></li>
-                            <li role="presentation"><a href="@Url.Action("Index","Game")">Games</a></li>
                             <li role="presentation"><a href="@Url.Action("CreateUser","Login")">Sign up</a></li>
-                            <li role="presentation"><a href="@Url.Action("LoginUser","Login")">Login</a></li>
+                            @if (SignInManager.IsSignedIn(User))
+                            {
+                                <li role="presentation"><a href="@Url.Action("Index","Game")">Games</a></li>
+                            }
+                            else
+                            {
+                                <li role="presentation"><a href="@Url.Action("LoginUser","Login")">Login</a></li>
+                            }
+                                <li>
+                                    @if (SignInManager.IsSignedIn(User))
+                                    {
+                                        <form id="logout" asp-controller="Login" role="form" asp-action="Logout">
+                                            <input type="submit" value="Logout" class="logout" />
+                                        </form>
+                                    }
+                                </li>
+
                             <li <img src="~/img/account.jpg" alt="account" width="20" height="20"/></li>
                         </ul>
                     </div>
-                </div>      
+                </div>
             </div>
-        </nav>       
-    </header> 
-      @RenderBody()
+        </nav>
+    </header>
+    @RenderBody()
 </body>
 </html>

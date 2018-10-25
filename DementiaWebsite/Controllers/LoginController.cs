@@ -45,7 +45,7 @@ namespace DementiaWebsite.Controllers
 
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("ConfirmSignUp", "Confirm");
+                    return RedirectToAction("LoginUser", "Login");
                 }
                 else
                 {
