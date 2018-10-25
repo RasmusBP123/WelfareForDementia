@@ -4,13 +4,13 @@
     Layout = "_Layout";
 }
 <fieldset>
-    <form method="post" asp-controller="Login" asp-action="CreateUser">
+    <form method="post" asp-controller="Login" asp-action="CreateUser" class="form-group">
         <div asp-validation-summary="All"></div>
 
         <div style="color:black">
-            <label asp-for="EMail"></label>
-            <input asp-for="EMail" />
-            <span asp-validation-for="EMail">Email</span>
+            <label asp-for="Email"></label>
+            <input asp-for="Email" />
+            <span asp-validation-for="Email"></span>
         </div>
         <div style="color:black">
             <label asp-for="PassWord">Password</label>

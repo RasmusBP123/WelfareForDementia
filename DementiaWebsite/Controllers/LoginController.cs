@@ -22,24 +22,24 @@ namespace DementiaWebsite.Controllers
         [HttpPost, Route("create")]
         public async Task<IActionResult> CreateUser(Person person)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 IdentityUser user = new IdentityUser()
                 {
                     Id = null,
-                    UserName = person.EMail,
-                    Email = person.EMail,
+                    UserName = person.Email,
+                    Email = person.Email,
                     EmailConfirmed = true,
-                    NormalizedUserName = "Player",
-                    NormalizedEmail = "@net.com",
+                    NormalizedUserName = null,
+                    NormalizedEmail = null,
                     SecurityStamp = null,
                     ConcurrencyStamp = null,
                     PhoneNumber = null,
                     PhoneNumberConfirmed = true,
                     TwoFactorEnabled = true,
-                    LockoutEnd = DateTime.Now,
+                    LockoutEnd = null,
                     LockoutEnabled = true,
-                    AccessFailedCount = 1,
+                    AccessFailedCount = 0,
                 };
                 var result = await _userManager.CreateAsync(user, person.PassWord);
 
@@ -61,6 +61,40 @@ namespace DementiaWebsite.Controllers
         public IActionResult CreateUser()
         {
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Login(Person person, string returnURL = null)
+        {
+            ViewData["returnURL"] = returnURL;
+            if (ModelState.IsValid)
+            {
+               var result = await signInManager.PasswordSignInAsync(person.Email, person.PassWord, 
+                    person.RememberMe, lockoutOnFailure:false);
+                if (result.Succeeded)
+                {
+                    if (Url.IsLocalUrl(returnURL))
+                    {
+                        Redirect(returnURL);
+                    }
+                    else
+                    {
+                        RedirectToAction(nameof(GameController.Index), "Play");
+                    }
+                }
+                else
+                {             
+                        ModelState.AddModelError(string.Empty, "Invalid login attempt");
+                }
+            }
+            return View(person);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Logout()
+        {
+            await signInManager.SignOutAsync();
+            return RedirectToAction(nameof(HomeController.Index), "Home");
         }
 
     }
