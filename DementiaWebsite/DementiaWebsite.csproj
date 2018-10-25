@@ -73,6 +73,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Views\Play\Index.cshtml" />
+    <None Include="wwwroot\Build\PuzzlePitch HTML.data.unityweb" />
+    <None Include="wwwroot\Build\PuzzlePitch HTML.wasm.code.unityweb" />
+    <None Include="wwwroot\Build\PuzzlePitch HTML.wasm.framework.unityweb" />
+    <None Include="wwwroot\Build\UnityLoader.js" />
     <None Include="wwwroot\fonts\FontAwesome.otf" />
     <None Include="wwwroot\fonts\fontawesome-webfont.eot" />
     <None Include="wwwroot\fonts\fontawesome-webfont.svg" />
@@ -114,6 +118,7 @@
     <None Include="wwwroot\css\font-awesome.css" />
     <None Include="wwwroot\css\font-awesome.min.css" />
     <None Include="wwwroot\css\style.css" />
+    <None Include="wwwroot\TemplateData\UnityProgress.js" />
   </ItemGroup>
   <ItemGroup>
     <Content Update="Views\Shared\_Index.cshtml">
