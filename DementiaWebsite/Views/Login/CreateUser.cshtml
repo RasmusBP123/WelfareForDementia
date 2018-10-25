@@ -7,21 +7,21 @@
     <form method="post" asp-controller="Login" asp-action="CreateUser">
         <div asp-validation-summary="All"></div>
 
-        <div>
-            <label asp-for="Email"></label>
-            <input asp-for="Email" />
-            <span asp-validation-for="Email">Email</span>
+        <div style="color:black">
+            <label asp-for="EMail"></label>
+            <input asp-for="EMail" />
+            <span asp-validation-for="EMail">Email</span>
         </div>
-        <div>
+        <div style="color:black">
             <label asp-for="PassWord">Password</label>
             <input asp-for="PassWord" />
             <span asp-validation-for="PassWord"></span>
         </div>
-        <div style="color:black">
+        @*<div style="color:black">
             <label asp-for="ConfirmPassWord">Confirm Password</label>
             <input asp-for="ConfirmPassWord" />
             <span asp-validation-for="ConfirmPassWord"></span>
-        </div>
+        </div>*@
         <div>
             <input type="submit" value="Register" />
         </div>

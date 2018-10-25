@@ -12,15 +12,15 @@ namespace DementiaWebsite.Models
     {
         [Required]
         [Display(Name = "Email")]
-        public string Email { get; set; }
+        public string EMail { get; set; }
 
         [Required]
         [Display(Name = "Password")]
         [DataType(DataType.Password)]
         public string PassWord { get; set; }
 
-        [Display(Name = "Reenter Password")]
-        [Compare(nameof(PassWord))]
-        public string ConfirmPassWord { get; set; }
+       /*[Display(Name = "Reenter Password")]
+        [DataType(DataType.Password),Compare(nameof(PassWord))]
+        public string ConfirmPassWord { get; set; }*/
     }
 }

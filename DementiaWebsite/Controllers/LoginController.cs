@@ -26,7 +26,20 @@ namespace DementiaWebsite.Controllers
             {
                 IdentityUser user = new IdentityUser()
                 {
-                    UserName = person.Email,
+                    Id = null,
+                    UserName = person.EMail,
+                    Email = person.EMail,
+                    EmailConfirmed = true,
+                    NormalizedUserName = "Player",
+                    NormalizedEmail = "@net.com",
+                    SecurityStamp = null,
+                    ConcurrencyStamp = null,
+                    PhoneNumber = null,
+                    PhoneNumberConfirmed = true,
+                    TwoFactorEnabled = true,
+                    LockoutEnd = DateTime.Now,
+                    LockoutEnabled = true,
+                    AccessFailedCount = 1,
                 };
                 var result = await _userManager.CreateAsync(user, person.PassWord);
 

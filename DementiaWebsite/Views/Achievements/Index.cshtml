@@ -1,19 +1,33 @@
 ﻿@{ 
     Layout = "_Layout";
 }
-  <body>
-        <h2>Achviements</h2>
+<body>
+    <h2>Achviements</h2>
+    <br />
+    <div class="achieve">
+        <h4>CONGRATULATIONS!</h4>
+        <p>To complete this task you should complete every level of games and get all achievements..</p>
+    </div>
+    <br />
+    <div class="achieve">
+        <h4>Returning player!</h4>
+        <p>To complete this task you have to play a game 5 days in a row.</p>
+    </div>
+    @await (Component.InvokeAsync<DementiaWebsite.ViewComponents.FooterViewComponent>())
+       <!---<a href="ss"
+           target="popup"
+           onclick="window.open('ss','popup','width=600,height=600'); return false;">
+            Link Text goes here...
+        </a>-->
 
-      @await (Component.InvokeAsync<DementiaWebsite.ViewComponents.FooterViewComponent>())
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script>
+        wow = new WOW(
+            {
 
-      <script src="js/jquery.js"></script>
-      <script src="js/bootstrap.min.js"></script>
-      <script src="js/wow.min.js"></script>
-      <script>
-	wow = new WOW(
-	 {
-
-		}	)
-		.init();
-      </script>
-  </body>
+            })
+            .init();
+    </script>
+</body>

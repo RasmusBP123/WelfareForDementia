@@ -1078,4 +1078,9 @@ ul.social-network li a {
 	font-weight:600;
 	font-size:12px;
 	text-shadow:none;
-} 
+}
+.achieve{
+   color:green;
+   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   text-align:center
+}
