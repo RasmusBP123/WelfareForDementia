@@ -56,7 +56,6 @@ namespace DementiaWebsite
                               IHostingEnvironment env,
                               FeatureToggles features)
         {
-            app.UseAuthentication();
             StaticFileOptions option = new StaticFileOptions();
             FileExtensionContentTypeProvider contentTypeProvider =
                 (FileExtensionContentTypeProvider)option.ContentTypeProvider ?? new FileExtensionContentTypeProvider();
@@ -70,6 +69,7 @@ namespace DementiaWebsite
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseAuthentication();
 
             //routing method which will look for "Controllers","/public methods in those classes and what parameters they might have
             app.UseMvc(routes =>

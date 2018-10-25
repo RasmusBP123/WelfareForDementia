@@ -73,11 +73,10 @@ namespace DementiaWebsite.Controllers
         [HttpPost, Route("login")]
         public async Task<IActionResult> LoginUser(Login login, string returnURL = null)
         {
-            ViewData["ReturnUrl"] = returnURL;
             if (ModelState.IsValid)
             {
                var result = await _signInManager.PasswordSignInAsync(login.Email, login.Password, 
-                 login.RememberMe, lockoutOnFailure:false);
+                    login.RememberMe, lockoutOnFailure:false);
                 if (result.Succeeded)
                 {
                     if (Url.IsLocalUrl(returnURL))
