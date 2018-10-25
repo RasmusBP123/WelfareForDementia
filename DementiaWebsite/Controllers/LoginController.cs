@@ -62,15 +62,20 @@ namespace DementiaWebsite.Controllers
         {
             return View();
         }
-
-        [HttpPost]
-        public async Task<IActionResult> Login(Person person, string returnURL = null)
+        
+        [HttpGet, Route("login")]
+        public IActionResult LoginUser()
         {
-            ViewData["returnURL"] = returnURL;
+            return View();
+        }
+
+        [HttpPost, Route("login")]
+        public async Task<IActionResult> LoginUser(Login login, string returnURL = null)
+        {
             if (ModelState.IsValid)
             {
-               var result = await signInManager.PasswordSignInAsync(person.Email, person.PassWord, 
-                    person.RememberMe, lockoutOnFailure:false);
+               var result = await signInManager.PasswordSignInAsync(login.Email, login.Password, 
+                    login.RememberMe, lockoutOnFailure:false);
                 if (result.Succeeded)
                 {
                     if (Url.IsLocalUrl(returnURL))
@@ -87,7 +92,7 @@ namespace DementiaWebsite.Controllers
                         ModelState.AddModelError(string.Empty, "Invalid login attempt");
                 }
             }
-            return View(person);
+            return View(login);
         }
 
         [HttpPost]
