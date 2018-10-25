@@ -49,16 +49,16 @@
                             }
                             else
                             {
-                                <li role="presentation"><a href="@Url.Action("LoginUser","Login")">Login</a></li>
+                                <li role="presentation"><a href="@Url.Action("Login","Login")">Login</a></li>
                             }
-                                <li>
-                                    @if (SignInManager.IsSignedIn(User))
-                                    {
-                                        <form id="logout" asp-controller="Login" role="form" asp-action="Logout">
-                                            <input type="submit" value="Logout" class="logout" />
-                                        </form>
-                                    }
-                                </li>
+                            <li>
+                                @if (SignInManager.IsSignedIn(User))
+                                {
+                                    <form id="logout" asp-controller="Login" role="form" asp-action="Logout">
+                                        <input type="submit" value="Logout" class="logout" />
+                                    </form>
+                                }
+                            </li>
 
                             <li <img src="~/img/account.jpg" alt="account" width="20" height="20"/></li>
                         </ul>
