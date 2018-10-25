@@ -22,7 +22,7 @@ namespace DementiaWebsite.Controllers
         [HttpPost, Route("create")]
         public async Task<IActionResult> CreateUser(Person person)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 IdentityUser user = new IdentityUser()
                 {
@@ -30,14 +30,14 @@ namespace DementiaWebsite.Controllers
                     UserName = person.EMail,
                     Email = person.EMail,
                     EmailConfirmed = true,
-                    NormalizedUserName = "Player",
-                    NormalizedEmail = "@net.com",
+                    NormalizedUserName = null,
+                    NormalizedEmail = null,
                     SecurityStamp = null,
                     ConcurrencyStamp = null,
                     PhoneNumber = null,
                     PhoneNumberConfirmed = true,
                     TwoFactorEnabled = true,
-                    LockoutEnd = DateTime.Now,
+                    LockoutEnd = null,
                     LockoutEnabled = true,
                     AccessFailedCount = 1,
                 };
@@ -57,11 +57,11 @@ namespace DementiaWebsite.Controllers
             }
             return View(person);
         }
+
         [HttpGet, Route("create")]
         public IActionResult CreateUser()
         {
             return View();
-        }
-
+        }       
     }
 }
