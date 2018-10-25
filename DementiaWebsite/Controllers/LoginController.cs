@@ -11,12 +11,12 @@ namespace DementiaWebsite.Controllers
     public class LoginController : Controller
     {
         private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> signInManager;
+        private readonly SignInManager<IdentityUser> _signInManager;
 
-        public LoginController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> _signinManager)
+        public LoginController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signinManager)
         {
             _userManager = userManager;
-            _signinManager = signInManager;
+            _signInManager = signinManager;
         }
 
         [HttpPost, Route("create")]
@@ -74,7 +74,7 @@ namespace DementiaWebsite.Controllers
         {
             if (ModelState.IsValid)
             {
-               var result = await signInManager.PasswordSignInAsync(login.Email, login.Password, 
+               var result = await _signInManager.PasswordSignInAsync(login.Email, login.Password, 
                     login.RememberMe, lockoutOnFailure:false);
                 if (result.Succeeded)
                 {
@@ -98,7 +98,7 @@ namespace DementiaWebsite.Controllers
         [HttpPost]
         public async Task<IActionResult> Logout()
         {
-            await signInManager.SignOutAsync();
+            await _signInManager.SignOutAsync();
             return RedirectToAction(nameof(HomeController.Index), "Home");
         }
 
