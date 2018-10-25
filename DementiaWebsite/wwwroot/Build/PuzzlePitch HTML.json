@@ -1,9 +1,9 @@
 {
 "companyName": "DefaultCompany",
 "productName": "PuzzlePitch",
-"dataUrl": "PuzzlePitchHTML.data.unityweb",
-"wasmCodeUrl": "PuzzlePitchHTML.wasm.code.unityweb",
-"wasmFrameworkUrl": "PuzzlePitchHTML.wasm.framework.unityweb",
+"dataUrl": "PuzzlePitch HTML.data.unityweb",
+"wasmCodeUrl": "PuzzlePitch HTML.wasm.code.unityweb",
+"wasmFrameworkUrl": "PuzzlePitch HTML.wasm.framework.unityweb",
 "TOTAL_MEMORY": 268435456,
 "graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
 "webglContextAttributes": {"preserveDrawingBuffer": false},

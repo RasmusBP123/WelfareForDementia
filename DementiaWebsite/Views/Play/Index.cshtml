@@ -1,6 +1,7 @@
 ﻿@{
-Layout = "_Layout";
+    Layout = "_Layout";
 }
+<html lang="en-us">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -10,13 +11,12 @@ Layout = "_Layout";
     <script src="TemplateData/UnityProgress.js"></script>  
     <script src="Build/UnityLoader.js"></script>
     <script>
-      var gameInstance = UnityLoader.instantiate("gameContainer", "Build/PuzzlePitchHTML.json", {onProgress: UnityProgress});
+      var gameInstance = UnityLoader.instantiate("gameContainer", "Build/PuzzlePitch HTML.json", {onProgress: UnityProgress});
     </script>
   </head>
   <body>
     <div class="webgl-content">
-        <div style="text-align:center"><h2>Puzzle pitch</h2></div>
-      <div id="gameContainer" style="width: 800px; height: 400px"></div>
+      <div id="gameContainer" style="width: 960px; height: 600px"></div>
       <div class="footer">
         <div class="webgl-logo"></div>
         <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
