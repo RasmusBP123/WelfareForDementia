@@ -1,12 +1,13 @@
-﻿<div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.9s">
+﻿@addTagHelper "*, Microsoft.AspNetCore.Mvc.TagHelpers"
+@addTagHelper "*, Microsoft.AspNetCore.Mvc.TagHelpers"
+<div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.9s">
     <form class="form-inline">
         <div class="form-group">
-            <a href="@Url.Action("Index","Game")">
-                <button type="button" name="PLAY" class="btn btn-primary btn-lg" required="required">PLAY</button>
-            </a>
+            <a class="btn btn-success" asp-controller="Game" asp-action="Index">SEE ALL GAMES</a>
+            <a class="btn btn-success" asp-controller="Play" asp-action="Index">PLAY GAME</a>
         </div>
-        <div class="form-group">
+        <!---<div class="form-group">
             <button name="GET MORE INFORMATION" class="btn btn-primary btn-lg" required="required">GET MO</button>
-        </div>
+        </div>-->
     </form>
 </div>

@@ -8,10 +8,6 @@ namespace DementiaWebsite.Controllers
 {
     public class ConfirmController : Controller
     {
-        [Route("confirm")]
-        public IActionResult ConfirmSignUp()
-        {
-            return View();
-        }
+        
     }
 }

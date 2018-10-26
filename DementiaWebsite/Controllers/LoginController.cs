@@ -103,5 +103,11 @@ namespace DementiaWebsite.Controllers
             return RedirectToAction(nameof(HomeController.Index), "Home");
         }
 
+        [Route("confirm")]
+        public IActionResult ConfirmSignUp()
+        {
+            return View();
+        }
+
     }
 }
