@@ -53,7 +53,6 @@
     <Content Remove="wwwroot\img\12.jpg" />
     <Content Remove="wwwroot\img\13.jpg" />
     <Content Remove="wwwroot\img\2.jpg" />
-    <Content Remove="wwwroot\img\7.jpg" />
     <Content Remove="wwwroot\img\8.jpg" />
     <Content Remove="wwwroot\img\9.jpg" />
     <Content Remove="wwwroot\img\gallery1.png" />
@@ -92,7 +91,6 @@
     <None Include="wwwroot\img\12.jpg" />
     <None Include="wwwroot\img\13.jpg" />
     <None Include="wwwroot\img\2.jpg" />
-    <None Include="wwwroot\img\7.jpg" />
     <None Include="wwwroot\img\8.jpg" />
     <None Include="wwwroot\img\9.jpg" />
     <None Include="wwwroot\img\gallery1.png" />
